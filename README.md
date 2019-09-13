@@ -1,3 +1,17 @@
+# Problema
+
+You are tasked with implementing an application that authorizes a transaction for a specific account following a set of predefined rules.
+
+```
+$ cat operations
+{ "account": { "activeCard": true, "availableLimit": 100 } }
+{ "transaction": { "merchant": "Burger King", "amount": 20, "time": "2019-02-13T10:00:00.000Z" } } { "transaction": { "merchant": "Habbib's", "amount": 90, "time": "2019-02-13T11:00:00.000Z" } }
+$ authorize < operations
+{ "account": { "activeCard": true, "availableLimit": 100 }, "violations": [] }
+{ "account": { "activeCard": true, "availableLimit": 80 }, "violations": [] }
+{ "account": { "activeCard": true, "availableLimit": 80 }, "violations": [ "insufficient-limit" ] }
+```
+
 # Instrucciones
 
 Se ha creado una clase con un metodo main como punto de entrada que espera transacciones de la entrada estandar y returna las transacciones procesadas deacuerdo a las reglas de negocio y las imprime an la salida estandar.
